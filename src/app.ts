@@ -1,7 +1,11 @@
 import "dotenv/config";
 import express from 'express';
 
+import { router } from "./routes"
+
 const app = express();
+
+app.use(router)
 
 //Rotas de conexão entre user e github(Rota de Login)
 app.get("/github", (request, response) =>{
