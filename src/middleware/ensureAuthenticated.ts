@@ -1,4 +1,5 @@
 import { Request, Response, NextFuntion } from "express"
+import { verify } from "jsonwebtoken"
 
 export function ensureAuthenticated (
   request: Request,
