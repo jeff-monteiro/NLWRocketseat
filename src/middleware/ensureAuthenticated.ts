@@ -15,6 +15,11 @@ export function ensureAuthenticated (
   }
   const [, token ] = authToken.split(" ")
 
-  const { sub } = verify(token, process.env.JWT_SECRET)
+  try{
+    const { sub } = verify(token, process.env.JWT_SECRET)
+  }catch(err){
+    return response.status(401).json({errorCode: "token.expired"})
+  }
+  
 
 }
