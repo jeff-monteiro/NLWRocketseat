@@ -15,4 +15,6 @@ export function ensureAuthenticated (
   }
   const [, token ] = authToken.split(" ")
 
+  const { sub } = verify(token, process.env.JWT_SECRET)
+
 }
